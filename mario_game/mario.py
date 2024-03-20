@@ -149,9 +149,9 @@ class MarioRunner():
         
         self.player.update()
         self.screen.fill(WHITE)
-        image = pygame.image.load('images.jpeg')
+        # image = pygame.image.load('images.jpeg')
         rect_dis = pygame.Rect(0,0,WIDTH,HEIGHT)
-        self.screen.blit(image, (0, 0),rect_dis)
+        # self.screen.blit(image, (0, 0),rect_dis)
         icon=pygame.image.load('block.png')
         pygame.display.set_icon(icon)
         pygame.draw.rect(self.screen, BLACK, (0, HEIGHT - GROUND_HEIGHT, WIDTH, GROUND_HEIGHT))
@@ -159,8 +159,8 @@ class MarioRunner():
         for obstacle in self.obstacles:
             obstacle.draw()
         
-        score_text = self.font.render(f'Score: {self.score}', True, (255, 0, 255))
-        self.screen.blit(score_text, (10, 10))
+        # score_text = self.font.render(f'Score: {self.score}', True, (255, 0, 255))
+        # self.screen.blit(score_text, (10, 10))
         pygame.display.flip()
         self.clock.tick(FPS)
     def reset(self):

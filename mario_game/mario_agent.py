@@ -46,9 +46,6 @@ class Agent:
     
 
     
-
-            
-    
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
 
@@ -92,14 +89,10 @@ def main(Use_Trained = False):
     while True:
         
         state_old = agent.get_state(game)
-
         final_move = agent.get_action(state_old)
-
         reward, done, score = game.play_step(final_move)
         state_new = agent.get_state(game)
         agent.train_short_memory(state_old, final_move, reward, state_new, done)
-
-        # remember
         agent.remember(state_old, final_move, reward, state_new, done)
 
         if done:
@@ -119,7 +112,7 @@ def main(Use_Trained = False):
             mean_score = total_score / agent.n_games
             plot_mean_scores.append(mean_score)
             # if agent.n_games%GRAPH_UPDATE == 0:
-            plot(plot_scores, plot_mean_scores)
+            # plot(plot_scores, plot_mean_scores)
 
 
 # main()
